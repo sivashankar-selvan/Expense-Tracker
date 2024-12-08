@@ -1,0 +1,42 @@
+<div>
+    <nz-row>
+        <div nz-col nzFlex="2">
+            <nz-card nzType="inner" style="margin-top:16px" nzTitle="Update Income">
+                <form nz-form [formGroup]="incomeForm" class="custom-form" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the title!">
+                            <input nz-input type="text" formControlName="title" placeholder="Enter title" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the amount!">
+                            <input nz-input type="number" formControlName="amount" placeholder="Enter amount" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the date!">
+                            <nz-date-picker style="width:100%" formControlName="date"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <textarea nz-input placeholder="Enter description" [nzAutosize]="{minRows:2,maxRows:6}" formControlName="description"></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please select a category!">
+                            <nz-select nzAllowClear nzPlaceHolder="Select the category" formControlName="category">
+                                <nz-option *ngFor="let category of listOfCategory" [nzLabel]="category" [nzValue]="category"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <button nz-button nzType="primary" nzBlock [disabled]="incomeForm.invalid" class="w-100">Post Income</button>
+                </form>
+            </nz-card>
+        </div>
+
+
+        
+    </nz-row>
+</div>
